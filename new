@@ -15,17 +15,21 @@ init_dir(){
 
 # mkdir APP_NAME
 APP_ROOT="$1"
-mkdir $1
-# build directories
-init_dir "experiments"
-init_dir "tests"
-init_dir "scripts"
-init_dir "results"
-init_dir "docs"
-init_dir ","
-init_dir "data"
-init_dir "slides"
-init_dir "libs"
-
-file_path="$APP_ROOT/.gitignore"
-cat $ACCEL_ROOT/templates/.gitignore >> $file_path
+if [ "$1" != "" ] ; then
+	APP_ROOT="$1"
+	mkdir $1
+	# build directories
+	init_dir "experiments"
+	init_dir "tests"
+	init_dir "scripts"
+	init_dir "results"
+	init_dir "docs"
+	init_dir ","
+	init_dir "data"
+	init_dir "slides"
+	init_dir "libs"
+	file_path="$APP_ROOT/.gitignore"
+	cat $ACCEL_ROOT/templates/gitignore.template >> $file_path
+else
+	echo !!! please input the name of app !!!
+fi
