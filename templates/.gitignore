@@ -1,0 +1,14 @@
+# .gitignore
+# directories
+slides/*
+docs/*
+data/*
+results/*
+,/*
+
+# files
+*.txt
+*.bk
+*.mat
+*.dat
+*.csv
