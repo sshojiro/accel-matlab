@@ -2,6 +2,7 @@
 # @date: 2015/02/04
 # @author: Shojiro Shibayama
 
+ACCEL_ROOT=$(dirname $0)
 if [ "$1" == "" ] ; then
 	# if nothing is input.
 	echo '### ACCEL CLI ###'

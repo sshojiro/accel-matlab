@@ -1,0 +1,31 @@
+# !/bin/sh
+# @date: 2015/02/07
+# @author: Shojiro Shibayama
+
+# USAGE:
+# 		accel new APP_NAME
+
+init_dir(){
+	# init_dir experiments
+	# -> mkdir $1/experiments
+	mkdir -p $APP_ROOT/$1
+	echo "$APP_ROOT/$1 is generated."
+}
+
+
+# mkdir APP_NAME
+APP_ROOT="$1"
+mkdir $1
+# build directories
+init_dir "experiments"
+init_dir "tests"
+init_dir "scripts"
+init_dir "results"
+init_dir "docs"
+init_dir ","
+init_dir "data"
+init_dir "slides"
+init_dir "libs"
+
+file_path="$APP_ROOT/.gitignore"
+cat $ACCEL_ROOT/templates/.gitignore >> $file_path
