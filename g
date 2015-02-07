@@ -38,6 +38,7 @@ elif [ "$1" == "exp" ] ; then
 	# define file path first
 	split $2 "/"
 	if [ "" == "${arr[1]}" ] ; then
+		mkdir -p experiments
 		fp=$(date +"$PWD/experiments/exp%Y_%m_%d_$2.m")
 		echo "the file is generated under experiments directory."
 	else
@@ -85,5 +86,4 @@ else
 	echo "		g exp EXPERIMENT_NAME"
 	echo "		g exp EXPERIMENT_TYPE/EXPERIMENT_NAME"
 	echo "		g model MODEL_NAME"
-	echo "		g commands are available in /e/Shibayama/IOT-Develop"
 fi
