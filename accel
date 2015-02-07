@@ -2,4 +2,19 @@
 # @date: 2015/02/04
 # @author: Shojiro Shibayama
 
-
+if [ "$1" == "" ] ; then
+	# if nothing is input.
+	echo '### ACCEL CLI ###'
+	echo 'USAGE: '
+	echo '	run `accel new APP_NAME` to start new project'
+	echo '	run `accel g exp`:'
+	. g
+elif [ "$1" == "g" ] ; then
+	# generate sth
+	shift
+	. g "$@"
+elif [ "$1" == "new" ] ; then
+	# build project
+	shift
+	. new "$@"
+fi
