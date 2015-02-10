@@ -3,6 +3,13 @@
 # @author: Shojiro Shibayama
 # @desc: define generate command
 
+# only can be accessed via accel command
+. common/util.const
+if [ "$0" == "$ACCEL_ROOT/g" ] ; then
+	. common/util.func
+	quit_direct_access
+fi
+
 split(){
 	# $ split TEXT DELIMITER
 	# ex) split "2015-01-18" "-"
@@ -36,17 +43,21 @@ elif [ "$1" == "script" ] ; then
 	print_template SCRIPT >> $fp
 elif [ "$1" == "exp" ] ; then
 	# define file path first
-	split $2 "/"
-	if [ "" == "${arr[1]}" ] ; then
-		mkdir -p experiments
-		fp=$(date +"$PWD/experiments/exp%Y_%m_%d_$2.m")
-		echo "the file is generated under experiments directory."
+	if [ "$1" == "" ] ; then
+		split $2 "/"
+		if [ "" == "${arr[1]}" ] ; then
+			mkdir -p experiments
+			fp=$(date +"$PWD/experiments/exp%Y_%m_%d_$2.m")
+			echo "the file is generated under experiments directory."
+		else
+			mkdir -p experiments/"${arr[0]}"
+			fp=$(date +"$PWD/experiments/${arr[0]}/exp%Y_%m_%d_${arr[1]}.m")
+			echo "the file is generated under experiments/${arr[0]} directory."
+		fi
+		print_template EXPERIMENT >> $fp
 	else
-		mkdir -p experiments/"${arr[0]}"
-		fp=$(date +"$PWD/experiments/${arr[0]}/exp%Y_%m_%d_${arr[1]}.m")
-		echo "the file is generated under experiments/${arr[0]} directory."
-	fi
-	print_template EXPERIMENT >> $fp
+		echo "ERROR: type experiment name!"
+	fi	
 elif [ "$1" == "model" ] ; then
 	split $2 "/"
 	if [ "" == "${arr[1]}" ] ; then
