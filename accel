@@ -2,7 +2,8 @@
 # @date: 2015/02/04
 # @author: Shojiro Shibayama
 
-. common/util.const
+ACCEL_ROOT=$(dirname $0)
+. $ACCEL_ROOT/common/util.const
 
 if [ "$1" == "" ] ; then
 	# if nothing is input.
@@ -10,17 +11,17 @@ if [ "$1" == "" ] ; then
 	echo 'USAGE: '
 	echo '	run `accel new APP_NAME` to start new project'
 	echo '	run `accel g exp`:'
-	. g
-elif [ "$1" == "g" ] ; then
+	. $ACCEL_ROOT/commands/g
+elif [ "$1" == "g" || "$1" == "generate" ] ; then
 	# generate sth
 	shift
-	. g "$@"
+	. $ACCEL_ROOT/commands/g "$@"
 elif [ "$1" == "new" ] ; then
 	# build project
 	shift
-	. new "$@"
+	. $ACCEL_ROOT/commands/new "$@"
 elif [[ "$1" == "config" ]]; then
 	# set configure params
 	shift
-	. config "$@"
+	. $ACCEL_ROOT/commands/config "$@"
 fi

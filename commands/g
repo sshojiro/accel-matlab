@@ -4,9 +4,9 @@
 # @desc: define generate command
 
 # only can be accessed via accel command
-. common/util.const
+. $ACCEL_ROOT/common/util.const
 if [ "$0" == "$ACCEL_ROOT/g" ] ; then
-	. common/util.func
+	. $ACCEL_ROOT/common/util.func
 	quit_direct_access
 fi
 
