@@ -1,5 +1,5 @@
 # !/bin/sh
 # @author: Shojiro Shibayama
 
-
 ACCEL_ROOT=$(dirname $0)
+ACCEL_CONFIG_FILE=`echo $HOME/.accelconfig`
