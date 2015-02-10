@@ -1,0 +1,9 @@
+# !/bin/sh
+# @author: Shojiro Shibayama
+
+
+quit_direct_access(){
+	echo "The Command must be accessed as ACCEL-CLI like:"
+	echo "	accel **"
+	exit 1
+}

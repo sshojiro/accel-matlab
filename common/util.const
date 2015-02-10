@@ -1,0 +1,5 @@
+# !/bin/sh
+# @author: Shojiro Shibayama
+
+
+ACCEL_ROOT=$(dirname $0)
