@@ -2,7 +2,8 @@
 # @date: 2015/02/04
 # @author: Shojiro Shibayama
 
-ACCEL_ROOT=$(dirname $0)
+. common/util.const
+
 if [ "$1" == "" ] ; then
 	# if nothing is input.
 	echo '### ACCEL CLI ###'
@@ -18,4 +19,8 @@ elif [ "$1" == "new" ] ; then
 	# build project
 	shift
 	. new "$@"
+elif [[ "$1" == "config" ]]; then
+	# set configure params
+	shift
+	. config "$@"
 fi

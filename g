@@ -43,7 +43,7 @@ elif [ "$1" == "script" ] ; then
 	print_template SCRIPT >> $fp
 elif [ "$1" == "exp" ] ; then
 	# define file path first
-	if [ "$1" == "" ] ; then
+	if [ "$2" != "" ] ; then
 		split $2 "/"
 		if [ "" == "${arr[1]}" ] ; then
 			mkdir -p experiments
@@ -57,7 +57,7 @@ elif [ "$1" == "exp" ] ; then
 		print_template EXPERIMENT >> $fp
 	else
 		echo "ERROR: type experiment name!"
-	fi	
+	fi
 elif [ "$1" == "model" ] ; then
 	split $2 "/"
 	if [ "" == "${arr[1]}" ] ; then
