@@ -12,7 +12,7 @@ if [ "$1" == "" ] ; then
 	echo '	run `accel new APP_NAME` to start new project'
 	echo '	run `accel g exp`:'
 	. $ACCEL_ROOT/commands/g
-elif [ "$1" == "g" || "$1" == "generate" ] ; then
+elif [ "$1" == "g" ] || [ "$1" == "generate" ] ; then
 	# generate sth
 	shift
 	. $ACCEL_ROOT/commands/g "$@"
