@@ -5,6 +5,8 @@
 
 # only can be accessed via accel command
 . $ACCEL_ROOT/common/util.const
+. $HOME/.accelconfig
+
 if [ "$0" == "$ACCEL_ROOT/g" ] ; then
 	. $ACCEL_ROOT/common/util.func
 	quit_direct_access
@@ -22,7 +24,6 @@ split(){
 print_template(){
 	# print template into each file
 	# the expected input is: EXPERIMENT, SCRIPT.
-	AUTHOR="Shojiro Shibayama"
 	echo "%%% $1 %%%"
 	date +"% %Y/%m/%d"
 	echo "% @author: $AUTHOR"
