@@ -30,7 +30,7 @@ print_template(){
 	if [ "$1" == "EXPERIMENT" ] ; then
 		echo "rehash;clear all;close all;"
 		echo "load_constants"
-		echo "DirName = util.setResultDir(mfilename);"
+		echo "DirName = util.setResultDir(mfilename('fullpath'));"
 	fi
 }
 
