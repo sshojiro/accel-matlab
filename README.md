@@ -1,5 +1,10 @@
-see here to create template generator command:
-http://stackoverflow.com/questions/6214743/create-new-file-from-templates-with-bash-script
 
+# accel-matlab-cli
 
-it seems to use `sed` command.
+To accelarate your matlab project
+
+## USAGE
+
+```bash
+
+```
